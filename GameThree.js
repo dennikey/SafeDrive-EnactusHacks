@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ResultExtra from "./ResultExtra"
 
 class GameThree extends Component {
     constructor() {
@@ -12,15 +13,27 @@ class GameThree extends Component {
     }
 
     handleChangeGreen() {
-        this.state.passtest = false
+        this.setState(prevState => {
+            return {
+                passtest: false
+            }
+        })
     }
 
     handleChangeYellow() {
-        this.state.passtest = false
+        this.setState(prevState => {
+            return {
+                passtest: false
+            }
+        })
     }
 
     handleChangePink() {
-        this.state.passtest = false
+        this.setState(prevState => {
+            return {
+                passtest: true
+            }
+        })
     }
 
     render() {
@@ -33,6 +46,7 @@ class GameThree extends Component {
                 <button onClick={this.handleChangeYellow} className="yellowcolor">Blue</button>
                 <button onClick={this.handleChangePink} className="bluecolor">Green</button>
                 <button onClick={this.handleChangeGreen} classname="greencolor">Yellow</button>
+                <ResultExtra passtest={this.state.passtest} />
             </div>
         )
     }

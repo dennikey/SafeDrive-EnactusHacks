@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ResultExtra from "./ResultExtra"
 
 class GameTwo extends Component {
     constructor() {
@@ -16,36 +17,69 @@ class GameTwo extends Component {
     }
 
     handleChangeOne() {
-        this.state.dic.push(1)
+        this.setState(prevState => {
+            prevState.dic.push(1)
+            return (
+                prevState
+            )
+        })
     }
 
     handleChangeTwo() {
-        this.state.dic.push(2)
+        this.setState(prevState => {
+            prevState.dic.push(2)
+            return (
+                prevState
+            )
+        })
     }
 
     handleChangeThree() {
-        this.state.dic.push(3)
+        this.setState(prevState => {
+            prevState.dic.push(3)
+            return (
+                prevState
+            )
+        })
     }
 
     handleChangeFour() {
-        this.state.dic.push(4)
+        this.setState(prevState => {
+            prevState.dic.push(4)
+            return (
+                prevState
+            )
+        })
     }
 
     handleChangeFive() {
-        this.state.dic.push(5)
+        this.setState(prevState => {
+            prevState.dic.push(5)
+            return (
+                prevState
+            )
+        })
     }
 
     handleChangeSix() {
-        this.state.dic.push(6)
+        this.setState(prevState => {
+            prevState.dic.push(6)
+            return (
+                prevState
+            )
+        })
     }
 
     render() {
-        if (this.state.dic.rand_num == [1, 2, 3, 4, 5, 6]) {
-            this.state.passtest = true
-        }
-
-        if (this.state.dic != [1, 2, 3, 4, 5, 6]) {
-            this.state.passtest = false
+        var pass = true
+        var answer = [1, 2, 3, 4, 5, 6]
+        if (this.state.dic.length == 6) {
+            for (var i = 0; i < this.state.dic.length; i++) {
+                if (this.state.dic[i] != answer[i]) {
+                    pass = false
+                }
+            }
+            this.state.passtest = pass
         }
 
         return (
@@ -59,6 +93,7 @@ class GameTwo extends Component {
                 <button onClick={this.handleChangeSix}>6</button>
                 <button onClick={this.handleChangeTwo}>2</button>
                 <button onClick={this.handleChangeFive}>5</button>
+                <ResultExtra passtest={this.state.passtest} />
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ResultExtra from "./ResultExtra"
 
 class GameOne extends Component {
     constructor() {
@@ -6,7 +7,7 @@ class GameOne extends Component {
         this.state = {
             count: 0,
             rand_num: Math.floor(Math.random() * 30), 
-            passtest: false
+            passtest1: false
         }
         this.handleClick_inc = this.handleClick_inc.bind(this)
         this.handleClick_dec = this.handleClick_dec.bind(this)
@@ -14,8 +15,6 @@ class GameOne extends Component {
  
     handleClick_inc() {
         this.setState(prevState => {
-            
-
             return {
                 count: prevState.count + 1
             }
@@ -32,11 +31,11 @@ class GameOne extends Component {
  
     render() { 
         if (this.state.rand_num == this.state.count) {
-            this.state.passtest = true
+            this.state.passtest1 = true
         }
 
         if (this.state.rand_num != this.state.count) {
-            this.state.passtest = false
+            this.state.passtest1 = false
         }
 
         return (
@@ -47,6 +46,7 @@ class GameOne extends Component {
                 <h1>{this.state.count}</h1>
                 <button onClick={this.handleClick_inc}>Increase!</button>
                 <button onClick={this.handleClick_dec}>Decrease!</button>
+                <ResultExtra passtest={this.state.passtest1} />
             </div>
         )
     }
