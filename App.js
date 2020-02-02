@@ -20,7 +20,7 @@ class App extends Component {
             this.setState({
                 passedtest: false
             })
-        }, 10000)
+        }, 30000)
     }
 
     render() {
@@ -100,7 +100,7 @@ class App extends Component {
                             </div>
                             <br></br>
                             <div class="row col-md-16">
-                                <Result finalresult={this.state.finalresult} />
+                                <Result finalresult={this.state.passedtest} />
                             </div>
                         </div>
                     </body>
